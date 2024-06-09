@@ -43,8 +43,9 @@ const UserProfile = (props: Props) => {
   return (
     <Layout style={{ backgroundColor: colorBgContainer, position: "relative" }}>
       <Content className=" content__content--profile-infor">
-        <div className="">
+        <div className="div__div--img-profile">
           <Image
+            className="img__img--profile-infor"
             style={{ borderRadius: 100 }}
             src={dataUser.img}
             width={150}
@@ -83,7 +84,8 @@ const UserProfile = (props: Props) => {
           </Button>
           <Button
             icon={<Icon component={EditSvg} />}
-            className="btn__btn--setting" onClick={() => setOpen(true)}
+            className="btn__btn--setting"
+            onClick={() => setOpen(true)}
           >
             Edit Profile
           </Button>

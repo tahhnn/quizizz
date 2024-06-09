@@ -22,6 +22,7 @@ const UserEditProfile = ({ open, setOpen }: Props) => {
   return (
     <>
       <Modal
+        width={600}
         className="modal__modal--edit-profile"
         open={open}
         onOk={handleOk}
@@ -34,7 +35,6 @@ const UserEditProfile = ({ open, setOpen }: Props) => {
           <Text className="mr-4 text-lg font-bold">Update Profile</Text>
           <EditOutlined />
         </div>
-        
       </Modal>
     </>
   );

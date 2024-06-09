@@ -18,20 +18,20 @@ const Profile = (props: Props) => {
           background: colorBgContainer,
           borderRadius: borderRadiusLG,
           marginBottom: 24,
+          minWidth: "100%",
         }}
       >
-        <UserProfile/>
+        <UserProfile />
       </Layout>{" "}
       <Layout
         style={{
           minHeight: 360,
-         
+
           marginBottom: 24,
         }}
       >
-        <UserCollection/>
+        <UserCollection />
       </Layout>{" "}
-     
     </>
   );
 };
