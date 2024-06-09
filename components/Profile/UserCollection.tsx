@@ -159,7 +159,8 @@ const UserCollection = (props: Props) => {
                               id={`${indexAnswer}`}
                               name={`answer${index}`}
                               type="radio"
-                              defaultChecked={item.correct === indexAnswer+1}
+                              defaultChecked={item.correct === indexAnswer + 1}
+                              disabled
                             />
                           </div>
                         </>

@@ -1,7 +1,7 @@
 import { Layout, theme } from "antd";
 import React from "react";
-import UserProfile from "./components/UserProfile";
-import UserCollection from "./components/UserCollection";
+import UserProfile from "../../../components/Profile/UserProfile";
+import UserCollection from "../../../components/Profile/UserCollection";
 
 type Props = {};
 
