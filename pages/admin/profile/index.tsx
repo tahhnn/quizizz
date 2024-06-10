@@ -1,7 +1,7 @@
 import { Layout, theme } from "antd";
 import React from "react";
-import UserProfile from "./components/UserProfile";
-import UserCollection from "./components/UserCollection";
+import UserProfile from "../../../components/Profile/UserProfile";
+import UserCollection from "../../../components/Profile/UserCollection";
 
 type Props = {};
 
@@ -18,20 +18,20 @@ const Profile = (props: Props) => {
           background: colorBgContainer,
           borderRadius: borderRadiusLG,
           marginBottom: 24,
+          minWidth: "100%",
         }}
       >
-        <UserProfile/>
+        <UserProfile />
       </Layout>{" "}
       <Layout
         style={{
           minHeight: 360,
-         
+
           marginBottom: 24,
         }}
       >
-        <UserCollection/>
+        <UserCollection />
       </Layout>{" "}
-     
     </>
   );
 };
