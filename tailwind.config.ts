@@ -17,6 +17,10 @@ const config: Config = {
           secColor: "#efefef",
           navColor: "#BEBEBE",
         },
+        color: {
+          "lightPurple": "var(--lightPurple)",
+          "higherPurple": "var(--higherPurple)",
+        }
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

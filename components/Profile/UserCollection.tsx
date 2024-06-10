@@ -3,6 +3,7 @@ import Icon from "@ant-design/icons/lib/components/Icon";
 import { Button, Layout, Switch, Typography, theme } from "antd";
 import Sider from "antd/es/layout/Sider";
 import React from "react";
+import { BaseButton } from "../Base";
 
 type Props = {};
 const { Content } = Layout;
@@ -116,7 +117,8 @@ const UserCollection = (props: Props) => {
             </div>
           </>
         ))}
-        <Button className="btn__btn--create">Create new quizz</Button>
+              <BaseButton className="text-white font-bold mt-4">Create new Quiz</BaseButton>
+
       </Sider>
       <Content
         style={{
@@ -129,12 +131,13 @@ const UserCollection = (props: Props) => {
           <Button className="btn__btn--create">Create new quizz</Button>
         </div>
         <div className="div__div--wrapper-quizInfor">
-          <button className="btn__btn--share">Share</button>
+        <BaseButton className="text-white font-bold float-end">Share</BaseButton>
+
           <p className="mb-2 font-bold">Demo</p>
           <p>By Hung Minh | Viet Nam</p>
           <div>
-            <button className="btn__btn--play">Play</button>
-            <Icon type="caret-down" />
+          <BaseButton className="text-white font-bold my-3">Play</BaseButton>
+          <Icon type="caret-down" />
           </div>
           <p className="p__p--switchbtn">
             Show Answers <Switch />
@@ -159,16 +162,10 @@ const UserCollection = (props: Props) => {
                       return (
                         <>
                           <div className="div__div--answerwrapper">
-                            <label htmlFor={`${indexAnswer}`}>
+                            <p>
                               {indexAnswer + 1}. {answer.text}
-                            </label>
-                            <input
-                              id={`${indexAnswer}`}
-                              name={`answer${index}`}
-                              type="radio"
-                              defaultChecked={item.correct === indexAnswer + 1}
-                              disabled
-                            />
+                            </p>
+                            <p className={`font-bold ${item.correct === indexAnswer + 1 ? "text-green-500" : "text-red-500"}`}>{item.correct === indexAnswer + 1 ? "Correct" : "Incorrect"}</p>
                           </div>
                         </>
                       );
