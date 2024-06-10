@@ -1,14 +1,24 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useCallback, useState } from "react";
+
+type Variant = "LOGIN" | "REGISTER";
 
 const globalContext = createContext({
-  showSidebar: true,
-  setShowSidebar: (prevValue: boolean) => {},
+  variant: "LOGIN",
+  toggleVariant: () => {},
 });
 
 const GlobalProvider = ({ children }: { children: ReactNode }) => {
-  const [showSidebar, setShowSidebar] = useState<boolean>(true);
+  const [variant, setVariant] = useState<Variant>("LOGIN");
 
-  const value = { showSidebar, setShowSidebar };
+  const toggleVariant = useCallback(() => {
+    if (variant === "LOGIN") {
+      setVariant("REGISTER");
+    } else {
+      setVariant("LOGIN");
+    }
+  }, [variant]);
+
+  const value = { variant, toggleVariant };
 
   return (
     <globalContext.Provider value={value}>{children}</globalContext.Provider>

@@ -1,4 +1,5 @@
 import Loader from "@/components/Loader";
+import { BaseButton } from "@/components/Base";
 import { useAuth } from "@/context/AuthContext";
 import { Inter } from "next/font/google";
 
@@ -10,5 +11,9 @@ export default function Home() {
   if (loading) {
     return <Loader />;
   }
-  return <main className={`${inter.className}`}></main>;
+  return (
+    <main className={`${inter.className}`}>
+      <BaseButton>dsafd</BaseButton>
+    </main>
+  );
 }
