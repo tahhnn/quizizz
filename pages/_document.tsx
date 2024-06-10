@@ -5,12 +5,7 @@ import { createCache, extractStyle, StyleProvider } from "@ant-design/cssinjs";
 const MyDocument = () => {
   return (
     <Html lang="en">
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Head />
       <body>
         <Main />
         <NextScript />
