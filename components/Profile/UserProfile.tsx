@@ -40,11 +40,29 @@ const UserProfile = (props: Props) => {
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState(0);
   const { user } = useAuth();
+
   const handleUpdateAvatar = async (e) => {
-    const { error, data } = await supabase.storage
-      .from("avatars")
-      .upload("file_path", e.target.files[0]);
-    console.log(data);
+    try {
+      const file = e.target.files[0];
+      const file_path = `${user?.user_metadata.provider_id}/${file.name}`;
+
+      const { error, data } = await supabase.storage
+        .from("avatars")
+        .upload(file_path, file);
+      if (error) {
+        throw error;
+      }
+      const { data: publicURL } = supabase.storage
+        .from("avatars")
+        .getPublicUrl(file_path);
+
+      const { data: updateData, error: updateError } = await supabase
+        .from("users")
+        .update({ avatar: publicURL.publicUrl })
+        .eq("googleId", userData.googleId);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSetUserData = async () => {

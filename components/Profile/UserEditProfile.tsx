@@ -87,7 +87,7 @@ const UserEditProfile = ({ open, setOpen, userData }: Props) => {
     });
   };
   console.log(topicSelected);
-  
+
   const onSubmit = () => {
     console.log("formData");
   };
@@ -108,11 +108,15 @@ const UserEditProfile = ({ open, setOpen, userData }: Props) => {
             Update Profile <EditOutlined />
           </Text>
 
-          <p className="w-[40%] text-sm float-end">
+          <p className="w-[40%] text-sm float-end mr-8">
             Please leave your name correct so people can recognize you
           </p>
         </div>
-        <form action="" className="mt-10 mb-8" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          action=""
+          className="mt-10 mb-8"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="relative">
             <label className="font-bold" htmlFor="name">
               Name
@@ -151,7 +155,14 @@ const UserEditProfile = ({ open, setOpen, userData }: Props) => {
                         }}
                         checked={topicSelected?.includes(i.id)}
                       >
-                        <p className={`absolute border-2 p-1 rounded-lg top-[1.75rem] font-bold ${topicSelected?.includes(i.id) ? "bg-[#A076CC] text-white" : "bg-[#fff]"}`} onClick={() => handleSetTopic(i.id)}>
+                        <p
+                          className={`absolute border-2 p-1 rounded-lg top-[1.75rem] font-bold ${
+                            topicSelected?.includes(i.id)
+                              ? "bg-[#A076CC] text-white"
+                              : "bg-[#fff]"
+                          }`}
+                          onClick={() => handleSetTopic(i.id)}
+                        >
                           {i.name}
                         </p>
                       </BaseInput>
