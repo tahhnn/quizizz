@@ -81,7 +81,11 @@ const UserCollection = (props: Props) => {
 
   return (
     <>
-      <Sider width={"35%"} style={{ backgroundColor: "#f5f5f5" }}>
+      <Sider
+        className="sider__sider--profileCollection"
+        width={"35%"}
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
         <p
           style={{
             backgroundColor: colorBgContainer,
@@ -121,6 +125,9 @@ const UserCollection = (props: Props) => {
           marginLeft: "2rem",
         }}
       >
+        <div className="div__div--block-create">
+          <Button className="btn__btn--create">Create new quizz</Button>
+        </div>
         <div className="div__div--wrapper-quizInfor">
           <button className="btn__btn--share">Share</button>
           <p className="mb-2 font-bold">Demo</p>
@@ -159,7 +166,8 @@ const UserCollection = (props: Props) => {
                               id={`${indexAnswer}`}
                               name={`answer${index}`}
                               type="radio"
-                              defaultChecked={item.correct === indexAnswer+1}
+                              defaultChecked={item.correct === indexAnswer + 1}
+                              disabled
                             />
                           </div>
                         </>
