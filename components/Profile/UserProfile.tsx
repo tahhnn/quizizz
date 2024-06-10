@@ -6,6 +6,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import UserEditProfile from "./UserEditProfile";
 import { set } from "react-hook-form";
+import { useAuth } from "@/context/AuthContext";
+import { supabase } from "@/utils/supabaseClient";
 const { Sider, Content } = Layout;
 const { Text, Link } = Typography;
 
@@ -39,28 +41,35 @@ const UserProfile = (props: Props) => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const [open, setOpen] = useState(false);
-
+  const {user} = useAuth();
+  const myUserData = supabase.auth.getUser();  
   return (
     <Layout style={{ backgroundColor: colorBgContainer, position: "relative" }}>
       <Content className=" content__content--profile-infor">
         <div className="div__div--img-profile">
-          <Image
+          <img
             className="img__img--profile-infor"
             style={{ borderRadius: 100 }}
-            src={dataUser.img}
+            src={user?.user_metadata.avatar_url}
             width={150}
             height={150}
             alt="user image"
           />
+
+          <div className="div__div--btn-edit">
+            <Button className="btn__btn--setting font-bold" onClick={() => setOpen(true)}>
+              <Icon component={EditSvg} /> Edit Profile
+            </Button>
+          </div>
         </div>
 
         <div className=" div__div--profile-infor">
           <div className="div__div--profile-nametag">
             <p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-              {dataUser.name}{" "}
-              <span className="span__span--profile-tag">{dataUser.tag}</span>
+              {user?.user_metadata.name}{" "}
+              <span className="span__span--profile-tag uppercase">{user?.user_metadata?.email_verified ? "Verified" : "Unverified"}</span>
             </p>
-            <p style={{ color: "#8854C0" }}>{dataUser.email}</p>
+            <p style={{ color: "#8854C0" }}>{user?.user_metadata.email}</p>
           </div>
           <div className="div__div--profile-other">
             <p style={{ fontWeight: "bold" }}>

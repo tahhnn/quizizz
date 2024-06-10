@@ -122,7 +122,7 @@ const UserEditProfile = ({ open, setOpen }: Props) => {
                       value={i.id}
                       
                     >
-                      <p className="absolute top-[1.75rem]">{i.name}</p>
+                      <p className="absolute top-[1.75rem] font-bold">{i.name}</p>
                     </FormInput>
                     </div>
                   </>

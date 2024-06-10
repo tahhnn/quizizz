@@ -2,7 +2,9 @@
     display: flex;
     width: 100%;
 
-
+    .div__div--btn-edit {
+        display: none;
+    }
 
     .div__div--profile-infor {
         display: flex;
@@ -148,11 +150,16 @@
     }
 
     .content__content--profile-infor {
-        justify-content: center;
         width: 100vh;
+        
+        .div__div--btn-edit {
+            display: block;
+            margin: 5px 20px;
+           margin-bottom: 4rem;
+        }
 
         .div__div--profile-infor {
-
+            
 
             .div__div--profile-nametag {
                 flex-grow: 1;
@@ -166,11 +173,11 @@
     }
 
     .div__div--menu {
+        margin-top: 2rem;
         width: 100%;
         display: flex;
         gap: 1.5rem;
         justify-content: center;
-
         .ul__ul--menu {
 
             li {
@@ -206,7 +213,11 @@
     }
 
     .content__content--profile-infor {
-
+        .div__div--btn-edit {
+            display: block;
+            margin: 5px 20px;
+           margin-bottom: 4rem;
+        }
 
         .div__div--profile-infor {
 
@@ -258,6 +269,13 @@
         justify-content: center;
         width: 100%;
 
+        .div__div--btn-edit {
+            display: block;
+            margin: 5px 20px;
+           margin-bottom: 4rem;
+           
+        }
+
         .div__div--profile-infor {
 
 
@@ -307,6 +325,12 @@
         justify-content: center;
         min-width: 100%;
         background-color: #fff;
+        .div__div--btn-edit {
+            display: block;
+            margin: 5px 20px;
+           margin-bottom: 4rem;
+        }
+        
 
         .div__div--profile-infor {
 
