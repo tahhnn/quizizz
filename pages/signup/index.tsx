@@ -11,8 +11,10 @@ import ButtonSubmitRegister from "@/components/Button/ButtonSubmitRegister";
 import { messageValidate } from "@/utils/messageValidate";
 import {  notification } from 'antd';
 import Notification from "@/components/Notification/Notification";
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
+import axios from "axios";
 export default function SignUp() {
+  const router = useRouter();
   const [api, contextHolder] = notification.useNotification();
   const [loadingRegister, setLoadingRegister] = useState<boolean>(false);
   const {
@@ -42,6 +44,20 @@ export default function SignUp() {
          api.open(Notification('Đăng ký thất bại', messageValidate['register.error.unique.email'], 'error'));
     } finally {
       setLoadingRegister(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const response = await axios.get("/api/auth/signin-google");
+      if (response.status === 200) {
+        const data = response.data;
+        router.push(data.url);
+      } else {
+        console.error("Failed to sign in");
+      }
+    } catch (error) {
+      console.error("Error sign in:", error);
     }
   };
   
@@ -98,9 +114,9 @@ export default function SignUp() {
 
             <div className="app__signup--content-socialite">
                   <div className="app__signup--content-socialite-title"> <span className=""> or continue with</span></div>
-                  <div className="app__signup--content-socialite-icon">
+                  <div onClick={handleGoogleSignIn} className="app__signup--content-socialite-icon">
                          <img src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png" alt="" />
-                         <span className="">Google</span>
+                         <span  className="">Google</span>
                   </div>
             </div>
               </div>
