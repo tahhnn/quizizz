@@ -1,3 +1,4 @@
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { usePathname } from "next/navigation";
 import type { ThemeConfig } from "antd";
@@ -5,11 +6,11 @@ import { ConfigProvider } from "antd";
 
 import "@/styles/globals.scss";
 
+import { AdminLayout, RootLayout } from "@/components/Layout";
+
 import { SWRProvider } from "@/providers/swr-provider";
 import { GlobalProvider } from "@/context/GlobalContext";
-import { AdminLayout, RootLayout } from "@/components/Layout";
-import Head from "next/head";
-import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { AuthProvider } from "@/context/AuthContext";
 
 const theme: ThemeConfig = {
   token: {

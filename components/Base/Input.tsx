@@ -1,9 +1,9 @@
 import { Controller } from "react-hook-form";
 
 import { cn } from "@/utils/helper";
-import FormError from "./form-error";
+import { ReactNode } from "react";
 
-const FormInput = ({
+const BaseInput = ({
   className,
   control,
   name,
@@ -20,14 +20,14 @@ const FormInput = ({
       rules={rules}
       render={({ field, formState: { errors } }) => {
         return (
-          <div className="mb-4">
+          <div>
             <div className="relative w-full flex flex-col justify-center items-center">
               <input
                 {...field}
                 {...inputProps}
                 disabled={disabled}
                 className={cn(
-                  `w-[50%] rounded-md bg-neutral-200 mb-1 px-3 py-3 text-sm placeholder:text-neutral-400 focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-gray-400`,
+                  `w-full bg-transparent border border-gray-200 placeholder:text-[#959191]/50 placeholder:text-sm placeholder:font-semibold rounded-md px-3 py-3 text-sm focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-gray-400`,
                   errors[name] && `focus:ring-offset-0 focus:ring-red-500`,
                   className
                 )}
@@ -40,7 +40,9 @@ const FormInput = ({
               </label>
             </div>
             {errors[name] && (
-              <FormError error={errors[name]?.message as string} />
+              <span className="text-xs leading-3 font-semibold text-red-500 mt-1">
+                {errors[name]?.message as ReactNode}
+              </span>
             )}
           </div>
         );
@@ -49,4 +51,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default BaseInput;
